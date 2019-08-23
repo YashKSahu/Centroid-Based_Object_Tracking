@@ -115,9 +115,23 @@ Exactly how you handle these situations is really dependent on where your object
 
 
 
+## LIMITATIONS AND DRAWBACKS
 
+There are two primary drawbacks of this object tracking algorithm.
 
+* The first is that it requires that object detection step to be run on every frame of the input video.
 
+* The second drawback is related to the underlying assumptions of the centroid tracking algorithm itself — centroids must lie close together between subsequent frames.
+
+    * This assumption typically holds, but keep in mind we are representing our 3D world with 2D frames — what happens when an object overlaps with another one?
+
+    * The answer is that object ID switching could occur.
+
+    * If two or more objects overlap each other to the point where their centroids intersect and instead have the minimum distance to the other respective object, the algorithm may (unknowingly) swap the object ID.
+
+    * It’s important to understand that the overlapping/occluded object problem is not specific to centroid tracking — it happens for many other object trackers as well, including advanced ones.
+
+    * However, the problem is more pronounced with centroid tracking as we relying strictly on the Euclidean distances between centroids and no additional metrics, heuristics, or learned patterns.
 
 
 
