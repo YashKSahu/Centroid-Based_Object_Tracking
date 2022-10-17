@@ -52,8 +52,6 @@ The centroid tracking algorithm assumes that we are passing in a set of bounding
 
 These bounding boxes can be produced by any type of object detector you would like (color thresholding + contour extraction, Haar cascades, HOG + Linear SVM, SSDs, Faster R-CNNs, etc.), provided that they are computed for every frame in the video.
 
-These bounding boxes can be produced by any type of object detector you would like (color thresholding + contour extraction, Haar cascades, HOG + Linear SVM, SSDs, Faster R-CNNs, etc.), provided that they are computed for every frame in the video.
-
 Once we have the bounding box coordinates we must compute the “centroid”, or more simply, the center (x, y)-coordinates of the bounding box. Figure 1 above demonstrates accepting a set of bounding box coordinates and computing the centroid.
 
 Since these are the first initial set of bounding boxes presented to our algorithm we will assign them unique IDs.
